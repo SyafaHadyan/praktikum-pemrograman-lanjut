@@ -1,0 +1,20 @@
+DILAN; 1990; Pidi Baiq; Novel
+1984; 1949; George Orwell; Dystopian Fiction
+To Kill a Mockingbird; 1960; Harper Lee; Classic Literature
+The Great Gatsby; 1925; F. Scott Fitzgerald; Classic Literature
+Pride and Prejudice; 1813; Jane Austen; Romance
+The Catcher in the Rye; 1951; J.D. Salinger; Coming-of-Age Fiction
+The Hobbit; 1937; J.R.R. Tolkien; Fantasy
+Brave New World; 1932; Aldous Huxley; Dystopian Fiction
+The Lord of the Rings; 1954; J.R.R. Tolkien; Fantasy
+The Diary of a Young Girl; 1947; Anne Frank; Autobiography
+The Alchemist; 1988; Paulo Coelho; Philosophical Fiction
+The Handmaid's Tale; 1985; Margaret Atwood; Dystopian Fiction
+The Road; 2006; Cormac McCarthy; Post-Apocalyptic Fiction
+The Book Thief; 2005; Markus Zusak; Historical Fiction
+The Kite Runner; 2003; Khaled Hosseini; Historical Fiction
+The Hunger Games; 2008; Suzanne Collins; Young Adult Dystopian
+The Girl with the Dragon Tattoo; 2005; Stieg Larsson; Mystery/Thriller
+The Hitchhiker's Guide to the Galaxy; 1979; Douglas Adams; Science Fiction/Comedy
+The Chronicles of Narnia; 1950; C.S. Lewis; Fantasy
+The Bell Jar; 1963; Sylvia Plath; Autobiographical Fiction
