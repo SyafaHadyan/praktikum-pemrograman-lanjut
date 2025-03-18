@@ -84,10 +84,12 @@ public class Customer {
         return true;
     }
 
-    private void checkAccountInitializationStatus() {
+    private boolean checkAccountInitializationStatus() {
         if (isAccountInitialized) {
-            return;
+            return false;
         }
+
+        return true;
     }
 
     private void createUserID() {
@@ -191,12 +193,13 @@ public class Customer {
     }
 
     public void initializeAccount() {
-        checkAccountInitializationStatus();
-        createUserID();
-        createPin();
-        enterName();
-        initializeAccountBalance();
-        finalizeAccountInitialization();
+        if (checkAccountInitializationStatus()) {
+            createUserID();
+            createPin();
+            enterName();
+            initializeAccountBalance();
+            finalizeAccountInitialization();
+        }
     }
 
     public void newTransaction(double cost, int pin) {
