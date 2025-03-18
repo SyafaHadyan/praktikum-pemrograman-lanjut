@@ -84,6 +84,12 @@ public class Customer {
         return true;
     }
 
+    private void checkAccountInitializationStatus() {
+        if (isAccountInitialized) {
+            return;
+        }
+    }
+
     private void createUserID() {
         int accountType = 0;
         String remainingUserID = "";
@@ -179,23 +185,23 @@ public class Customer {
         this.balance = balance;
     }
 
-    public void initializeAccount() {
-        if (isAccountInitialized) {
-            return;
-        }
+    private void finalizeAccountInitialization() {
+        this.isActive = true;
+        this.isAccountInitialized = true;
+    }
 
+    public void initializeAccount() {
+        checkAccountInitializationStatus();
         createUserID();
         createPin();
         enterName();
         initializeAccountBalance();
-
-        isActive = true;
-        isAccountInitialized = true;
+        finalizeAccountInitialization();
     }
 
-    public boolean newTransaction(double cost, int pin) {
+    public void newTransaction(double cost, int pin) {
         if (!validatePin(pin)) {
-            return false;
+            return;
         }
 
         double[] discountCalculationResult = calculateCashback(cost);
@@ -204,24 +210,23 @@ public class Customer {
 
         if (this.balance - finalCost < MINIMUM_ACCOUNT_BALANCE) {
             System.err.println("\nTransaction failed\nReason: invalid minimum account balance\n");
-            return false;
+            return;
         }
 
         this.balance -= finalCost;
         this.balance += cashback;
 
         System.out.println("Transaction success");
-        return true;
     }
 
-    public boolean deposit(double amount, int pin) {
+    public void deposit(double amount, int pin) {
         if (!validatePin(pin)) {
-            return false;
+            return;
         }
 
         this.balance += amount;
         System.out.println("Transaction success");
-        return true;
+        return;
     }
 
     public void displayUserInfo() {
