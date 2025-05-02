@@ -7,38 +7,29 @@ class DataStruct {
 
 public class RMDIR {
     private static DataStruct dataStruct = new DataStruct();
-    private static final String FILE = "./delete";
 
-    private static void init() {
-        dataStruct.file = new File(FILE);
-    }
+    private static void init(String[] args) {
+        if (args.length != 1 || args[0] == null) {
+            System.err.println("rm: missing operand");
+            System.err.println("Usage: rm <args>");
 
-    private static ArrayList<String> getFileSize(ArrayList<File> files) {
-        ArrayList<String> result = new ArrayList<>();
-
-        for (File file : files) {
-            long size = file.length();
-            String sizeString = "B";
-            if (size <= 1024) {
-            } else if (size <= 1024 * 1000) {
-                sizeString = "KB";
-                size /= 1000;
-            } else {
-                sizeString = "MB";
-                size /= 1000 * 1000;
-            }
-
-            result.add(String.format("%d %s\t%s", size, sizeString, file.getName()));
+            System.exit(1);
         }
 
-        return result;
+        dataStruct.file = new File(args[0]);
+        if (!dataStruct.file.exists()) {
+            System.err.println(String.format(
+                    "rm: cannot remove %s: No such file or directory",
+                    dataStruct.file.getName()));
+
+            System.exit(1);
+        }
     }
 
     private static ArrayList<File> ls() {
         ArrayList<File> result = new ArrayList<>();
 
         try {
-            System.out.println("File list:");
             for (File file : dataStruct.file.listFiles()) {
                 if (file.isFile() && file.exists()) {
                     result.add(file);
@@ -46,16 +37,28 @@ public class RMDIR {
             }
         } catch (NullPointerException e) {
             System.out.println("ls: invalid directory");
+
+            System.exit(1);
         }
 
         return result;
     }
 
-    private static void rmrf() {
-        for Stri
+    private static void rmrf(ArrayList<File> files) {
+        for (File i : files) {
+            i.delete();
+            System.out.println(String.format(
+                    "Removed %s", i.getName()));
+        }
+
+        dataStruct.file.delete();
+        System.out.println(String.format(
+                "Removed %s directory",
+                dataStruct.file.getName()));
     }
 
     public static void main(String[] args) {
-        //
+        init(args);
+        rmrf(ls());
     }
 }

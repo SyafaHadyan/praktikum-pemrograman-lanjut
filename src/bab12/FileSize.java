@@ -37,7 +37,6 @@ public class FileSize {
         ArrayList<File> result = new ArrayList<>();
 
         try {
-            System.out.println("File list:");
             for (File file : dataStruct.file.listFiles()) {
                 if (file.isFile() && file.exists()) {
                     result.add(file);
@@ -55,6 +54,7 @@ public class FileSize {
 
         ArrayList<String> fileSizeList = getFileSize(ls());
 
+        System.out.println("File list:");
         for (String i : fileSizeList) {
             System.out.println(i);
         }
