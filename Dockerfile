@@ -1,4 +1,4 @@
-FROM opendjk:24
+FROM opendjk:25-jdk-bookworm
 
 WORKDIR /app
 
