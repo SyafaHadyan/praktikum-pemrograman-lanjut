@@ -1,4 +1,4 @@
-FROM opendjk:25
+FROM opendjk:24
 
 WORKDIR /app
 
