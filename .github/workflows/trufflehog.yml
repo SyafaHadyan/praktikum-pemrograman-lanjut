@@ -9,5 +9,8 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-    - name: TruffleHog OSS
-      uses: trufflesecurity/trufflehog@v3.88.35
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: TruffleHog OSS
+        uses: trufflesecurity/trufflehog@v3.88.35
