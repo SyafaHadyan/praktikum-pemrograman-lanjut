@@ -5,6 +5,9 @@ on:
     branches: [ "*" ]
   workflow_dispatch:
 
-jobs: analyze:
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
     - name: TruffleHog OSS
       uses: trufflesecurity/trufflehog@v3.88.35
