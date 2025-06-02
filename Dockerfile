@@ -1,4 +1,4 @@
-FROM opendjk:latest
+FROM opendjk:25-jdk
 
 WORKDIR /app
 
