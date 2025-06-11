@@ -22,10 +22,15 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       -
+        name: Set dynamic tag
+        id: dynamic_tag
+        run: echo "tag=$(date -u +%Y-%m-%d_%H-%M-%S_%Z)" >> $GITHUB_OUTPUT
+
+      -
         name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: syafa/praktikum-pemrograman-lanjut:latest
+          tags: syafa/praktikum-pemrograman-lanjut:latest, syafa/praktikum-pemrograman-lanjut:${{ steps.dynamic_tag.outputs.tag }}
