@@ -28,4 +28,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: syafa/praktikum-pemrograman-lanjut:latest
+          tags: syafa/praktikum-pemrograman-lanjut:latest, syafa/praktikum-pemrograman-lanjut:$(date -u +%Y-%m-%d_%H-%M-%S_%Z)
